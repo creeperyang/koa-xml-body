@@ -1,0 +1,30 @@
+{
+  "name": "koa-xml-body",
+  "version": "1.0.0",
+  "description": "koa middleware to parse xml request body",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creeperyang/koa-xml-body.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "request",
+    "parse",
+    "xml"
+  ],
+  "author": "creeperyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creeperyang/koa-xml-body/issues"
+  },
+  "homepage": "https://github.com/creeperyang/koa-xml-body#readme",
+  "dependencies": {
+    "raw-body": "^2.1.5",
+    "xml2js": "^0.4.15"
+  }
+}
