@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "5.x"
+  - "4.x"
+  - "0.12"
+matrix:
+  allow_failures:
+    - node_js: "4.x"
+    - node_js: "5.x"
+before_script:
+  - npm run lint
