@@ -1,14 +1,13 @@
 # koa-xml-body
 
 [![Build Status](https://travis-ci.org/creeperyang/koa-xml-body.svg?branch=master)](https://travis-ci.org/creeperyang/koa-xml-body)
+[![npm version](https://badge.fury.io/js/koa-xml-body.svg)](https://badge.fury.io/js/koa-xml-body)
 
 A xml body parser for koa.
 
 ## Install
 
-```bash
-npm install --save koa-xml-body
-```
+[![NPM](https://nodei.co/npm/koa-xml-body.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-xml-body/)
 
 ## Usage
 
