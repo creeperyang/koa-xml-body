@@ -4,6 +4,7 @@
   "description": "koa middleware to parse xml request body",
   "main": "index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "lint": "node_modules/.bin/eslint tools lib test",
     "build": "BABEL_ENV=development node --eval \"require('babel-register');require('babel-polyfill');require('./tools/build.js').default().catch(console.log.bind(console))\"",
     "test": "BABEL_ENV=restricted ./node_modules/.bin/mocha --compilers js:babel-register --reporter spec --harmony"
@@ -13,11 +14,11 @@
     "url": "git+https://github.com/creeperyang/koa-xml-body.git"
   },
   "keywords": [
+    "xml",
+    "body",
+    "bodyParser",
     "koa",
-    "middleware",
-    "request",
-    "parse",
-    "xml"
+    "middleware"
   ],
   "author": "creeperyang",
   "license": "MIT",

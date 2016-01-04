@@ -26,7 +26,7 @@ app.use(function *() {
 });
 ```
 
-`koa-xml-body` will carefully check and set `this.request.body`, so it can play well with other body parsers such as `koa-bodyparser`:
+`koa-xml-body` will carefully check and set `this.request.body`, so it can **intergate** well with other body parsers such as `koa-bodyparser`:
 
 ```js
 // ...
@@ -41,8 +41,8 @@ app.use(bodyParser());
 
 - **encoding**: requested encoding. Default is `utf8`. If not set, the lib will retrive it from `content-type`(such as `content-type:application/xml;charset=gb2312`).
 - **limit**: limit of the body. If the body ends up being larger than this limit, a 413 error code is returned. Default is `1mb`.
-- **length**: length of the body. When `content-length` is found, this will be overwritten by `content-length`.
-- **onerror**: error handler. Default is a `noop` function. It means it will **eat** the error and do nothing. You can set it to customize the response.
+- **length**: length of the body. When `content-length` is found, it will be overwritten automatically.
+- **onerror**: error handler. Default is a `noop` function. It means it will **eat** the error silently. You can config it to customize the response.
 
 ```js
 app.use(xmlParser({
