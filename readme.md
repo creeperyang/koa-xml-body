@@ -1,5 +1,7 @@
 # koa-xml-body
 
+[![Build Status](https://travis-ci.org/creeperyang/koa-xml-body.svg?branch=master)](https://travis-ci.org/creeperyang/koa-xml-body)
+
 A xml body parser for koa.
 
 ## Install
@@ -22,6 +24,17 @@ app.use(function *() {
     // if nothing was parsed, body will be undefined
     this.body = this.request.body;
 });
+```
+
+`koa-xml-body` will carefully check and set `this.request.body`, so it can play well with other body parsers such as `koa-bodyparser`:
+
+```js
+// ...
+var bodyParser = require('koa-bodyparser');
+
+// ...
+app.use(xmlParser());
+app.use(bodyParser());
 ```
 
 ## Options
