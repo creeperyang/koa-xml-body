@@ -137,7 +137,7 @@ describe('koa-xml-body', () => {
             app.use(parseXMLBody({
                 limit: 128,
                 onerror: (err, ctx) => {
-                    ctx.throw(err.status, err.message)
+                    ctx.throw(err.status, err.message);
                 }
             }));
 
@@ -160,7 +160,7 @@ describe('koa-xml-body', () => {
 
             app.use(parseXMLBody({
                 onerror: (err, ctx) => {
-                    ctx.throw(err.status, err.message)
+                    ctx.throw(err.status, err.message);
                 }
             }));
 
