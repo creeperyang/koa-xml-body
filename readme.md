@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/creeperyang/koa-xml-body.svg?branch=master)](https://travis-ci.org/creeperyang/koa-xml-body)
 [![npm version](https://badge.fury.io/js/koa-xml-body.svg)](https://badge.fury.io/js/koa-xml-body)
+[![Dependency Status](https://david-dm.org/creeperyang/koa-xml-body.svg)](https://david-dm.org/creeperyang/koa-xml-body)
+[![devDependency Status](https://david-dm.org/creeperyang/koa-xml-body/dev-status.svg)](https://david-dm.org/creeperyang/koa-xml-body#info=devDependencies)
 
 A xml body parser for koa.
 
