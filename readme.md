@@ -16,7 +16,7 @@ A xml body parser for koa.
 
 ```js
 var koa = require('koa');
-var xmlParser = require('koa-xml-body');
+var xmlParser = require('koa-xml-body').default; // note the default
 
 var app = koa();
 app.use(xmlParser());
@@ -38,6 +38,14 @@ var bodyParser = require('koa-bodyparser');
 app.use(xmlParser());
 app.use(bodyParser());
 ```
+
+**Note:**
+
+The lib is written in `ES6+` and transpiled with `Babel@6.x`. You should use the lib either the way below:
+
+- **Traditional**: `var xmlParser = require('koa-xml-body').default;`
+- **`ES6+` with `Babel@6.x`**: `import xmlParser from 'koa-xml-body';`
+
 
 ## Options
 
