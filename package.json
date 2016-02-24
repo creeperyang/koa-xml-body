@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
-    "babel-eslint": "^4.1.6",
+    "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-check-es2015-constants": "^6.3.13",
     "babel-plugin-transform-es2015-arrow-functions": "^6.3.13",
@@ -60,7 +60,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
     "babel-runtime": "^6.5.0",
-    "eslint": "^1.10.3",
+    "eslint": "^2.2.0",
     "eslint-plugin-babel": "^3.0.0",
     "iconv-lite": "^0.4.13",
     "koa": "^1.1.2",
