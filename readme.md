@@ -6,7 +6,7 @@
 [![devDependency Status](https://david-dm.org/creeperyang/koa-xml-body/dev-status.svg)](https://david-dm.org/creeperyang/koa-xml-body#info=devDependencies)
 [![download times](https://img.shields.io/npm/dm/koa-xml-body.svg)](https://www.npmjs.com/package/koa-xml-body)
 
-A xml body parser for koa.
+> Parse xml request body for Koa
 
 ## Install
 
@@ -57,8 +57,8 @@ The lib is written in `ES6+` and transpiled with `Babel@6.x`. You should use the
 ```js
 app.use(xmlParser({
     limit: 128,
-    length: 200, // if not sure about the effect, just leave it unspecified
-    encoding: 'utf8', // Again, it's better to leave it unspecified. and lib will detect it from `content-type` well
+    length: 200, // '1mb'|1024... If not sure about the effect, just leave it unspecified
+    encoding: 'utf8', // lib will detect it from `content-type`
     onerror: (err, ctx) => {
         ctx.throw(err.status, err.message);
     }
