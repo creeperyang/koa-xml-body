@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import webpack from 'webpack';
 
 const config = {
-    entry: ['babel-polyfill', process.cwd() + '/lib/index.js'],
+    entry: [process.cwd() + '/lib/index.js'],
     output: {
         path: './',
         filename: 'index.js',
@@ -24,6 +24,7 @@ const config = {
                 query: {
                     'babelrc': false,
                     'plugins': [
+                        ['transform-runtime', { polyfill: false }],
                         'babel-plugin-transform-es2015-template-literals',
                         'babel-plugin-transform-es2015-literals',
                         'babel-plugin-transform-es2015-function-name',

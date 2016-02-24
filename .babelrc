@@ -5,6 +5,7 @@
     },
     "restricted": {
       "plugins": [
+        ['transform-runtime', { polyfill: false }],
         "babel-plugin-transform-es2015-template-literals",
         "babel-plugin-transform-es2015-literals",
         "babel-plugin-transform-es2015-function-name",
