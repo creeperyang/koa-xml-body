@@ -154,6 +154,35 @@ describe('koa-xml-body', () => {
         });
     });
 
+    describe('with a valid xml body and addtional xmlOptions', () => {
+        it('should parse body correctly when xmlOptions.explicitArray is false', (done) => {
+            let app = koa();
+
+            app.use(parseXMLBody({
+                xmlOptions: { explicitArray: false }
+            }));
+
+            app.use(function* () {
+                this.request.body.should.eql({
+                    xml: {
+                        Content: 'Hello,世界！',
+                        CreateTime: '12345678',
+                        FromUserName: 'DG',
+                        MsgType: 'text',
+                        ToUserName: 'Little Cat'
+                    }
+                });
+                this.status = 200;
+            });
+
+            request(app.listen())
+                .post('/')
+                .set('Content-Type', 'text/xml')
+                .send(sourceXml)
+                .expect(200, done);
+        });
+    });
+
     describe('with an invalid body', () => {
         it('should respond 400', (done) => {
             let app = koa();
