@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/creeperyang/koa-xml-body.svg?branch=master)](https://travis-ci.org/creeperyang/koa-xml-body)
 [![npm version](https://badge.fury.io/js/koa-xml-body.svg)](https://badge.fury.io/js/koa-xml-body)
 [![Dependency Status](https://david-dm.org/creeperyang/koa-xml-body.svg)](https://david-dm.org/creeperyang/koa-xml-body)
-[![devDependency Status](https://david-dm.org/creeperyang/koa-xml-body/dev-status.svg)](https://david-dm.org/creeperyang/koa-xml-body#info=devDependencies)
 [![download times](https://img.shields.io/npm/dm/koa-xml-body.svg)](https://www.npmjs.com/package/koa-xml-body)
 
 > Parse xml request body for Koa
@@ -53,6 +52,7 @@ The lib is written in `ES6+` and transpiled with `Babel@6.x`. You should use the
 - **limit**: limit of the body. If the body ends up being larger than this limit, a 413 error code is returned. Default is `1mb`.
 - **length**: length of the body. When `content-length` is found, it will be overwritten automatically.
 - **onerror**: error handler. Default is a `noop` function. It means it will **eat** the error silently. You can config it to customize the response.
+- **xmlOptions**: options will be passed to `xml2js`. Default is `{}`. See [`xml2js Options`](https://github.com/Leonidas-from-XIV/node-xml2js#options) for details.
 
 ```js
 app.use(xmlParser({
