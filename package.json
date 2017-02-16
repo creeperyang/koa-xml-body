@@ -1,8 +1,8 @@
 {
   "name": "koa-xml-body",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "koa middleware to parse xml request body",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib test",
     "test": "mocha --harmony test/*.js"
@@ -17,7 +17,8 @@
     "bodyParser",
     "koa",
     "middleware",
-    "xml2js"
+    "xml2js",
+    "xml parser"
   ],
   "author": "creeperyang",
   "license": "MIT",
@@ -39,5 +40,8 @@
     "mocha": "^3.2.0",
     "should": "^11.2.0",
     "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 4"
   }
 }
