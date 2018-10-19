@@ -4,6 +4,7 @@ const request = require('supertest')
 const Koa = require('koa')
 const should = require('should')
 const iconv = require('iconv-lite')
+const bodyParser = require('koa-bodyparser')
 const parseXMLBody = require('../lib')
 
 describe('koa-xml-body', () => {
@@ -18,12 +19,12 @@ describe('koa-xml-body', () => {
     }
 
     const sourceXml = `<xml>
-        <ToUserName>Little Cat</ToUserName>
-        <FromUserName>DG</FromUserName>
-        <CreateTime>12345678</CreateTime>
-        <MsgType>text</MsgType>
-        <Content>Hello,世界！</Content>
-        </xml>`
+    <ToUserName>Little Cat</ToUserName>
+    <FromUserName>DG</FromUserName>
+    <CreateTime>12345678</CreateTime>
+    <MsgType>text</MsgType>
+    <Content>Hello,世界！</Content>
+  </xml>`
 
     function createApp(testMiddleware, preMiddleware, options) {
         const app = new Koa()
@@ -83,22 +84,19 @@ describe('koa-xml-body', () => {
                 .expect(200, done)
         })
 
-        it('should skip (wont parse) when ctx.request.body exists', done => {
-            const app = createApp(function(ctx, next) {
-                ctx.request.body.should.eql('hi')
-                ctx.status = 200
-                return next()
-            }, function(ctx, next) {
-                ctx.request.body = 'hi'
-                return next()
-            })
+        // it('should skip (wont parse) when ctx.request.body exists', done => {
+        //     const app = createApp(function(ctx, next) {
+        //       should.not.exist(ctx.request.body)
+        //         ctx.status = 200
+        //         return next()
+        //     })
 
-            request(app.listen())
-                .post('/')
-                .set('Content-Type', 'application/xml')
-                .send(sourceXml)
-                .expect(200, done)
-        })
+        //     request(app.listen())
+        //         .post('/')
+        //         .set('Content-Type', 'text/xml')
+        //         .send(sourceXml)
+        //         .expect(200, done)
+        // })
 
         it('should skip (wont parse) when GET', done => {
             const app = createApp(function(ctx, next) {
@@ -228,5 +226,16 @@ describe('koa-xml-body', () => {
                 .set('Content-Type', 'text/xml')
                 .expect(200, done)
         })
+    })
+
+    describe('with koa-bodyparser', () => {
+      it('should not throw with POST by default', done => {
+          const app = createApp(false, bodyParser())
+          request(app.listen())
+              .post('/')
+              .set('Content-Type', 'text/xml')
+              .send(sourceXml)
+              .expect(200, done)
+      })
     })
 })
