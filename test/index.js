@@ -181,6 +181,26 @@ describe('koa-xml-body', () => {
                 .send(sourceXml)
                 .expect(200, done)
         })
+
+        it('should work correctly with options.key', done => {
+            const app = createApp(function(ctx, next) {
+                ctx.request.body.should.eql({})
+                ctx.request.xmlBody.should.eql(expected)
+                ctx.status = 200
+                return next()
+            }, function(ctx, next) {
+                ctx.request.body = {}
+                return next()
+            }, {
+                key: 'xmlBody'
+            })
+
+            request(app.listen())
+                .post('/')
+                .set('Content-Type', 'application/xml')
+                .send(sourceXml)
+                .expect(200, done)
+        })
     })
 
     describe('with an invalid body', () => {
