@@ -51,6 +51,7 @@ Current version (`v2.x`) of `koa-xml-body` is writtern with `ES2015` and for `ko
 - **length**: length of the body. When `content-length` is found, it will be overwritten automatically.
 - **onerror**: error handler. Default is a `noop` function. It means it will **eat** the error silently. You can config it to customize the response.
 - **xmlOptions**: options which will be used to parse xml. Default is `{}`. See [`xml2js Options`](https://github.com/Leonidas-from-XIV/node-xml2js#options) for details.
+- **key**: A chance to redefine what the property name to use instead of the default `body (ctx.request.body)`.
 
 ```js
 app.use(xmlParser({
@@ -59,6 +60,7 @@ app.use(xmlParser({
     xmlOptions: {
         explicitArray: false
     },
+    key: 'xmlBody', // lib will check ctx.request.xmlBody & set parsed data to it.
     onerror: (err, ctx) => {
         ctx.throw(err.status, err.message);
     }
