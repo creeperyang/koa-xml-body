@@ -1,6 +1,6 @@
 {
   "name": "koa-xml-body",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "koa middleware to parse xml request body",
   "main": "lib/index.js",
   "scripts": {
@@ -27,19 +27,19 @@
   },
   "homepage": "https://github.com/creeperyang/koa-xml-body#readme",
   "dependencies": {
-    "raw-body": "^2.2.0",
-    "xml2js": "^0.4.17"
+    "raw-body": "^2.4.1",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "eslint": "^3.15.0",
+    "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "iconv-lite": "^0.4.15",
-    "koa": "^2.0.0-alpha.8",
-    "mocha": "^3.2.0",
+    "koa": "^2.13.0",
+    "mocha": "^3.5.0",
     "should": "^11.2.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.4.2"
   },
   "engines": {
     "node": ">= 4"
