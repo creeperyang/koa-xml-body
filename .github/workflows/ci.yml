@@ -24,4 +24,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+    - if: ${{ matrix.node-version < 16 }}
+      run: npm install koa@2
     - run: npm test
