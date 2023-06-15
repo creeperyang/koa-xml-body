@@ -1,0 +1,29 @@
+name: test
+
+on:
+  push:
+    branches: [ "master", "**" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.x, 16.x, 18.x, latest]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v3
+      with:
+        node: ${{ matrix.node }}
+        cache: 'npm'
+    - run: npm install
+    - if: ${{ matrix.node == '14.x' }}
+      run: npm install koa@2
+    - run: npm test
